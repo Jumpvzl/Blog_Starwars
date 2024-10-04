@@ -1,3 +1,14 @@
+.dropdown-toggle {
+    color: white;
+    background-color: #0d6efd !important
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: white; /* Mantiene el color original */
+    background-color: transparent; /* Mantiene el fondo transparente */
+}
+
 .footer{
     background-color: rgba(128, 128, 128, 0.548);
 }
@@ -11,7 +22,9 @@
     text-decoration: underline;
 }
 
-.footer .logo {
+
+
+.footer .imgfooter {
     border: 1px solid #fff;
     border-radius: 50%;
     width: 35px;
@@ -19,6 +32,8 @@
     margin-left: 8px;
 }
 
-img {
+
+
+.imgfooter {
     border-radius: 50%;
 }
