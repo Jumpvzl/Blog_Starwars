@@ -15,7 +15,7 @@ const Characters = ({ people }) => {
                             alt={`Imagen de ${person.name}`}
                             onError={(e) => {
                                 e.target.onerror = null; // Para evitar bucles en caso de error
-                                e.target.src = "ruta_a_imagen_por_defecto.jpg"; // Imagen por defecto
+                                e.target.src = "https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg"; // Imagen por defecto
                             }}
                         />
                         <div className="card-body">
@@ -30,12 +30,12 @@ const Characters = ({ people }) => {
                                 <strong>Eyes Color:</strong> {person.eye_color}
                             </p>
 							<div className="btnfooter">
-								<buttom to={`/person/${person.uid}`} type="button" className="btn btn-outline-primary">
+								<button to={`/person/${person.uid}`} type="button" className="btn btn-outline-primary">
 									Learn More!
-								</buttom>
-								<buttom type="button" className="btn btn-outline-warning">
+								</button>
+								<button type="button" className="btn btn-outline-warning">
 									☆
-								</buttom>
+								</button>
 							</div>
                         </div>
                     </div>

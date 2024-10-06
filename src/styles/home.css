@@ -12,16 +12,23 @@
     margin: 1em;
     display: flex;
     flex-direction: column;
-    min-width: 250px; 
+    min-height: 200px;
+    min-width: 400px;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
+.card-img-top{
+    height: 200px;
+    width: 400px;
+}
 
 h1{
-    color: red
+    color: red;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .overflow-x-scroll {
     overflow-x: auto; 
