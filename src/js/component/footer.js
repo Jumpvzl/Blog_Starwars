@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export const Footer = (props) => (
-<div className="container-fluid fixed-bottom">
+<div className="container-fluid">
             {props.properties.map((item, index) => (
                 <footer key={index} className="footer mt-auto py-3 text-center">
                     <p>
