@@ -11,7 +11,7 @@ const Vehicles = ({ vehicles }) => {
                     <div className="card" key={vehicle.uid}>
                         <img
                             src={`https://starwars-visualguide.com/assets/img/starships/${vehicle.uid}.jpg`} 
-                            className="card-img-top"
+                            className="card-img-top-vehicles"
                             alt={`Imagen de ${vehicle.name}`}
                             onError={(e) => {
                                 e.target.onerror = null; 

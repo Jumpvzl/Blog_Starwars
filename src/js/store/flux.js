@@ -24,7 +24,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 							if (response.status === 200) {
 								return response.json().then(data => ({
 									...data.result.properties,
-									uid: data.result.uid
+									uid: data.result.uid,
+									description: data.result.description,
 								}));
 							} else {
 								return null; // Manejar errores como quieras

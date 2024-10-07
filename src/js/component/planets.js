@@ -10,7 +10,7 @@ const Planets = ({ planets }) => {
                     <div className="card" key={planet.uid}>
                         <img
                             src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} 
-                            className="card-img-top"
+                            className="card-img-top-planets"
                             alt={`Imagen de ${planet.name}`}
                             onError={(e) => {
                                 e.target.onerror = null; 

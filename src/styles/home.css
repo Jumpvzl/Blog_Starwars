@@ -2,7 +2,42 @@
     color: white;
     background-color: #0d6efd !important
 }
+.linea-roja {
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    height: 2px; /* Grosor de la línea */
+    background-color: red; /* Color de la línea */
+    margin: 10px 0; /* Espaciado superior e inferior */
+}
 
+.caracteristica-name{
+    margin-left: 2rem;
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-birth{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-gender{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-height{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-skin{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-eyes{
+    color: red
+}
 .btnfooter {
     display:flex;
     justify-content: space-between; 
@@ -20,12 +55,27 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
-.card-img-top{
-    height: 200px;
-    width: 400px;
+.card-img-top-characteres{
+    height: 547px;
+    width: 398px;
+}
+.card-img-top-planets{
+    height: 398px;
+    width: 398px;
+}
+.card-img-top-vehicles{
+    height: 265px;
+    width: 398px;
 }
 
-h1{
+.imagen-detalles{
+    height: 600px;
+    width: 800px;
+}
+.person{
+    margin-left: 2rem;
+}
+.titleMain{
     color: red;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -41,9 +91,16 @@ h1{
     background-color: transparent;
 }
 
+.routerReact{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+}
+
 .footer{
     background-color: rgba(128, 128, 128, 0.548);
-    position: sticky;
 }
 
 .footer a {
