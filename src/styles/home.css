@@ -8,7 +8,9 @@
     background-color: red; /* Color de la línea */
     margin: 10px 0; /* Espaciado superior e inferior */
 }
-
+.person{
+    margin-left: 2rem;
+}
 .caracteristica-name{
     margin-left: 2rem;
     margin-right: 3rem;
@@ -38,6 +40,71 @@
 .caracteristica-eyes{
     color: red
 }
+.plant{
+    margin-left: 2rem;
+}
+.caracteristica-name{
+    margin-left: 2rem;
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-diameter{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-climate{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-terrain{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-orbitalperiod{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-rotationperiod{
+    color: red
+}
+.vehicle{
+    margin-left: 2rem;
+}
+.caracteristica-name{
+    margin-left: 2rem;
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-model{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-manufacturer{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-crew{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-hyperdrive{
+    margin-right: 3rem;
+    color: red
+}
+
+.caracteristica-speed{
+    color: red
+}
+
 .btnfooter {
     display:flex;
     justify-content: space-between; 
@@ -72,9 +139,7 @@
     height: 600px;
     width: 800px;
 }
-.person{
-    margin-left: 2rem;
-}
+
 .titleMain{
     color: red;
     margin-top: 1rem;
@@ -83,6 +148,7 @@
 .overflow-x-scroll {
     overflow-x: auto; 
     white-space: nowrap; 
+    background-color: gainsboro;
 }
 
 .nav-link:hover,

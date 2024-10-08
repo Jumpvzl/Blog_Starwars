@@ -2,24 +2,22 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const Detalles = () => {
-    const { uid } = useParams(); // Obtener el uid de los parámetros de la URL
+const Detalles_characters = () => {
+    const { uid } = useParams();
     const { store, actions } = useContext(Context);
-    const [person, setPerson] = useState(null); // Estado local para almacenar el personaje
+    const [person, setPerson] = useState(null);
 
     useEffect(() => {
-        // Buscar el personaje usando el uid
         const foundPerson = store.people.find(p => p.uid === uid);
         if (foundPerson) {
             setPerson(foundPerson);
         } else {
-            // Si no se encuentra, podrías hacer una llamada API aquí si es necesario
-            actions.getPeople(); // Puedes llamar a la función para obtener los personajes
+            actions.getPeople();
         }
     }, [uid, store.people, actions]);
 
     if (!person) {
-        return <p>Cargando...</p>; // Mostrar un mensaje de carga mientras se obtiene la información
+        return <p>Cargando...</p>;
     }
 
     return (
@@ -62,4 +60,4 @@ const Detalles = () => {
     );
 };
 
-export default Detalles;
+export default Detalles_characters;

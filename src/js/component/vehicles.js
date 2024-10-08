@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const Vehicles = ({ vehicles }) => {
     if (!vehicles || vehicles.length === 0) return <p>No hay vehículos disponibles.</p>;
@@ -30,11 +32,11 @@ const Vehicles = ({ vehicles }) => {
                                 <strong>Manufacturer:</strong> {vehicle.manufacturer}
                             </p>
                             <div className="btnfooter">
-                                <Link to={`/starship/${vehicle.uid}`} className="btn btn-outline-primary">
+                                <Link to={`/vehicles/detalles/${vehicle.uid}`} className="btn btn-outline-primary">
                                     Learn More!
                                 </Link>
                                 <button type="button" className="btn btn-outline-warning">
-                                    ☆
+                                    <FontAwesomeIcon icon={faHeart} />
                                 </button>
                             </div>
                         </div>

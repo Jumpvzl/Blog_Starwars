@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const Planets = ({ planets }) => {
     if (!planets || planets.length === 0) return <p>No hay planetas disponibles.</p>;
@@ -29,11 +31,11 @@ const Planets = ({ planets }) => {
                                 <strong>Población:</strong> {planet.population}
                             </p>
                             <div className="btnfooter">
-                                <Link to={`/planet/${planet.uid}`} className="btn btn-outline-primary">
+                                <Link to={`/planets/detalles/${planet.uid}`} className="btn btn-outline-primary">
                                     Learn More!
                                 </Link>
                                 <button type="button" className="btn btn-outline-warning">
-                                    ☆
+                                    <FontAwesomeIcon icon={faHeart} />
                                 </button>
                             </div>
                         </div>

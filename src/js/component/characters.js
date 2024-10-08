@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 const Characters = ({ people }) => {
     if (!people || people.length === 0) return <p>No hay personajes disponibles.</p>; // Manejo si no hay personas
@@ -34,7 +37,7 @@ const Characters = ({ people }) => {
 									Learn More!
 								</Link>
 								<button type="button" className="btn btn-outline-warning">
-									☆
+                                    <FontAwesomeIcon icon={faHeart} />
 								</button>
 							</div>
                         </div>
