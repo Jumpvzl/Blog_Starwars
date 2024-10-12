@@ -9,6 +9,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			error: null,
 		},
 		actions: {
+			addFavorite: (item) => {
+				console.log("Adding favorite:", item);
+				const store = getStore();
+				setStore({"favorites": [...store.favorites,item]});
+			},
+			removeFavorite: (item) => {
+				console.log("Removing favorite with uid:", uid);
+				const store = getStore();
+				setStore({"favorites": store.favorites.filter((favorites) => favorites.uid != item.uid && favorites.name != item.name )});
+			},
+			
 			getPeople: async () => {
 				const store = getStore();
 				const setError = (errorMessage) => setStore({ error: errorMessage });

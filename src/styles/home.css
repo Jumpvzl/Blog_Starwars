@@ -36,7 +36,16 @@
     margin-right: 3rem;
     color: red
 }
+.btn-danger {
+    background-color: red;
+    color: white;
+}
 
+.btn-outline-warning {
+    background-color: transparent;
+    color: orange;
+    border: 1px solid orange;
+}
 .caracteristica-eyes{
     color: red
 }
