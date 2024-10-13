@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -13,19 +13,16 @@ const Characters = () => {
 
     const isFavorite = (character) => { 
         return store.favorites.some((favorito) => favorito.uid == character.uid && favorito.type == character.type)
-    }
+    };
     
     const handlerClick = (character) => {
         if (isFavorite(character)){
             actions.removeFavorite(character)
-
         }
         else {
             actions.addFavorite(character)
-
         }
-
-    }
+    };
 
 
     return (

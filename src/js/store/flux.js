@@ -17,9 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			removeFavorite: (item) => {
 				console.log("Removing favorite with uid:", item);
 				const store = getStore();
-				console.log(store.favorites)
 				let newFavorites = store.favorites.filter((fav) => !(fav.uid == item.uid && fav.type == item.type))
-				console.log(newFavorites)
 				setStore({"favorites": newFavorites});
 			},
 			
