@@ -18,11 +18,11 @@ export const Home = () => {
     return (
         <div className="container justify-content-center">
             <h1 className="titleMain">Characters</h1>
-            <Characters people={store.people} />
+            <Characters />
             <h1 className="titleMain">Planets</h1>
-            <Planets planets={store.planets} />
+            <Planets />
             <h1 className="titleMain">Vehicles</h1>
-            <Vehicles vehicles={store.vehicles} />
+            <Vehicles />
         </div>
     );
 };

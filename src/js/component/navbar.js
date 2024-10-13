@@ -25,8 +25,8 @@ export const Navbar = () => {
                         </a>
                         <ul className="dropdown-menu">
                             {store.favorites.map(favorite => (
-                                <li className="dropdown-item" key={favorite.uid}>
-                                    {favorite.titulo}
+                                <li className="dropdown-item" key={`${favorite.uid}-${favorite.name}`}>
+                                    {favorite.name}
                                     <button 
                                         className="btn btn-link" 
                                         onClick={() => actions.removeFavorite(favorite)}

@@ -15,9 +15,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({"favorites": [...store.favorites,item]});
 			},
 			removeFavorite: (item) => {
-				console.log("Removing favorite with uid:", uid);
+				console.log("Removing favorite with uid:", item);
 				const store = getStore();
-				setStore({"favorites": store.favorites.filter((favorites) => favorites.uid != item.uid && favorites.name != item.name )});
+				console.log(store.favorites)
+				let newFavorites = store.favorites.filter((fav) => !(fav.uid == item.uid && fav.type == item.type))
+				console.log(newFavorites)
+				setStore({"favorites": newFavorites});
 			},
 			
 			getPeople: async () => {

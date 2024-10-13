@@ -6,14 +6,29 @@ import { Context } from "../store/appContext";
 
     const Vehicles = ({ vehicles }) => {
     const { actions, store } = useContext(Context);
+    const vehiculos = store.vehicles
 
-    if (!vehicles || vehicles.length === 0) return <p>No hay vehículos disponibles.</p>;
+    
+    if (!vehiculos || vehiculos.length === 0) return <p>No hay vehículos disponibles.</p>;
+    const isFavorite = (vehiculo) => { 
+        return store.favorites.some((favorito) => (favorito.uid == vehiculo.uid && favorito.type == vehiculo.type))
+    }
 
+    const handlerClick = (character) => {
+        if (isFavorite(character)){
+            actions.removeFavorite(character)
+        }
+        else {
+            actions.addFavorite(character)
+
+        }
+
+    }
     return (
         <div className="overflow-x-scroll">
             <div className="d-flex">
-                {vehicles.map(vehicle => {
-                    const isFavorite = store.favorites.some(fav => fav.uid === vehicle.uid);
+                {vehiculos.map(vehicle => {
+                    const favoriteClass = isFavorite({"uid": vehicle.uid, "type": "Vehiculos"}) ? 'btn-danger' : 'btn-outline-warning';
                     return (
                         <div className="card" key={vehicle.uid}>
                             <img
@@ -34,11 +49,8 @@ import { Context } from "../store/appContext";
                                     <Link to={`/vehicles/detalles/${vehicle.uid}`} className="btn btn-outline-primary">Learn More!</Link>
                                     <button 
                                         type="button" 
-                                        className={`btn ${isFavorite ? 'btn-danger' : 'btn-outline-warning'}`}
-                                        onClick={() => isFavorite 
-                                            ? actions.removeFavorite(vehicle.uid) 
-                                            : actions.addFavorite({"titulo": vehicle.name, "uid": vehicle.uid})
-                                        }
+                                        className={`btn ${favoriteClass}`} 
+                                        onClick={() => handlerClick({"name": vehicle.name, "uid": vehicle.uid, "type": "Vehiculos"})}
                                     >
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>

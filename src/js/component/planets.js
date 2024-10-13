@@ -4,16 +4,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Context } from "../store/appContext";
 
-const Planets = ({ planets }) => {
+const Planets = () => {
     const { actions, store } = useContext(Context);
+    const planetas = store.planets
 
-    if (!planets || planets.length === 0) return <p>No hay planetas disponibles.</p>;
+    if (!planetas || planetas.length === 0) return <p>No hay planetas disponibles.</p>;
+    const isFavorite = (character) => { 
+        return store.favorites.some((favorito) => favorito.uid == character.uid && favorito.type == character.type)
+    }
 
+    const handlerClick = (character) => {
+        if (isFavorite(character)){
+            actions.removeFavorite(character)
+        }
+        else {
+            actions.addFavorite(character)
+
+        }
+
+    }
     return (
         <div className="overflow-x-scroll">
             <div className="d-flex">
-                {planets.map(planet => {
-                    const isFavorite = store.favorites.some(fav => fav.uid === planet.uid);
+                {planetas.map(planet => {
+                    const favoriteClass = isFavorite({"uid": planet.uid, "type": "Planetas"}) ? 'btn-danger' : 'btn-outline-warning';
                     return (
                         <div className="card" key={planet.uid}>
                             <img
@@ -34,11 +48,8 @@ const Planets = ({ planets }) => {
                                     <Link to={`/planets/detalles/${planet.uid}`} className="btn btn-outline-primary">Learn More!</Link>
                                     <button 
                                         type="button" 
-                                        className={`btn ${isFavorite ? 'btn-danger' : 'btn-outline-warning'}`}
-                                        onClick={() => isFavorite 
-                                            ? actions.removeFavorite(planet.uid) 
-                                            : actions.addFavorite({"titulo": planet.name, "uid": planet.uid})
-                                        }
+                                        className={`btn ${favoriteClass}`} 
+                                        onClick={() => handlerClick({"name": planet.name, "uid": planet.uid, "type": "Planetas"})}
                                     >
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>

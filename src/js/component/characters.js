@@ -4,31 +4,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Context } from "../store/appContext";
 
-const Characters = ({ people }) => {
+const Characters = () => {
     const { store, actions } = useContext(Context);
+    const personajes = store.people
 
-    if (!people || people.length === 0) return <p>No hay personajes disponibles.</p>;
 
-    const [favorites, setFavorites] = useState([]);
+    if (!personajes || personajes.length === 0) return <p>No hay personajes disponibles.</p>;
 
-    function isFavorited(people){
-        return favorites.some((favorite) => favorite.uid == people.uid)
+    const isFavorite = (character) => { 
+        return store.favorites.some((favorito) => favorito.uid == character.uid && favorito.type == character.type)
     }
-    function handleClick(people) {
-        if (isFavorited(people)) {
-            setFavorites(favorites.filter((favorite) => favorite.uid !== people.uid));
-            actions.removeFavorite(people);
-        } else {
-            const newFavorite = { uid: people.uid, name: people.name };
-            setFavorites([...favorites, newFavorite]);
-            actions.addFavorite(newFavorite);
+    
+    const handlerClick = (character) => {
+        if (isFavorite(character)){
+            actions.removeFavorite(character)
+
         }
+        else {
+            actions.addFavorite(character)
+
+        }
+
     }
+
+
     return (
         <div className="overflow-x-scroll">
             <div className="d-flex">
-                {people.map(person => {
-                    const isFavorite = store.favorites.some(favorite => favorite.uid === person.uid);
+                {personajes.map(person => {
+                    const favoriteClass = isFavorite({"uid": person.uid, "type": "personajes"}) ? 'btn-danger' : 'btn-outline-warning';
                     return (
                         <div className="card" key={person.uid}>
                             <img
@@ -57,8 +61,8 @@ const Characters = ({ people }) => {
                                     </Link>
                                     <button 
                                         type="button" 
-                                        className={`btn ${isFavorite ? 'btn-danger' : 'btn-outline-warning'}`} 
-                                        onClick={() => handleClick(people)}
+                                        className={`btn ${favoriteClass}`} 
+                                        onClick={() => handlerClick({"name": person.name, "uid": person.uid, "type": "personajes"})}
                                     >
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>
