@@ -29,6 +29,17 @@ import { Context } from "../store/appContext";
             <div className="d-flex">
                 {vehiculos.map(vehicle => {
                     const favoriteClass = isFavorite({"uid": vehicle.uid, "type": "Vehiculos"}) ? 'btn-danger' : 'btn-outline-warning';
+                    
+                    const manufacturer = vehicle.manufacturer.length > 22 
+                        ? (
+                            <>
+                                {vehicle.manufacturer.slice(0, 22)}
+                                <br />
+                                {vehicle.manufacturer.slice(22)}
+                            </>
+                          ) 
+                        : vehicle.manufacturer;
+
                     return (
                         <div className="card" key={vehicle.uid}>
                             <img
@@ -44,7 +55,7 @@ import { Context } from "../store/appContext";
                                 <h5 className="card-title">{vehicle.name}</h5>
                                 <p className="card-text"><strong>Model:</strong> {vehicle.model}</p>
                                 <p className="card-text"><strong>Crew:</strong> {vehicle.crew}</p>
-                                <p className="card-text"><strong>Manufacturer:</strong> {vehicle.manufacturer}</p>
+                                <p className="card-text"><strong>Manufacturer:</strong> {manufacturer}</p>
                                 <div className="btnfooter">
                                     <Link to={`/vehicles/detalles/${vehicle.uid}`} className="btn btn-outline-primary">Learn More!</Link>
                                     <button 

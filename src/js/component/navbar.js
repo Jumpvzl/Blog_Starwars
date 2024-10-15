@@ -21,20 +21,24 @@ export const Navbar = () => {
                 <ul className="nav nav-pills ms-auto">
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            Favorites <span className="badge text-bg-secondary">{store.favorites.length}</span>
+                        Favorites <span className={`badge ${store.favorites.length > 0 ? 'bg-danger' : 'bg-secondary'}`}>{store.favorites.length}</span>
                         </a>
                         <ul className="dropdown-menu">
-                            {store.favorites.map(favorite => (
-                                <li className="dropdown-item" key={`${favorite.uid}-${favorite.name}`}>
-                                    {favorite.name}
-                                    <button 
-                                        className="btn btn-link" 
-                                        onClick={() => actions.removeFavorite(favorite)}
-                                    >
-                                        <FontAwesomeIcon icon={faTrash} />
-                                    </button>
-                                </li>
-                            ))}
+                            {store.favorites.length === 0 ? (
+                                <li className="dropdown-item">empty</li>
+                            ) : (
+                                store.favorites.map(favorite => (
+                                    <li className="dropdown-item text-primary" key={`${favorite.uid}-${favorite.name}`}>
+                                        {favorite.name}
+                                        <button 
+                                            className="btn btn-link" 
+                                            onClick={() => actions.removeFavorite(favorite)}
+                                        >
+                                            <FontAwesomeIcon className="text-black" icon={faTrash} />
+                                        </button>
+                                    </li>
+                                ))
+                            )}
                         </ul>
                     </li>
                 </ul>
