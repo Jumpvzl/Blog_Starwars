@@ -36,16 +36,17 @@
     margin-right: 3rem;
     color: red
 }
-.btn-danger {
-    background-color: red;
-    color: white;
+
+.btn-favorite {
+    border: 2px solid gold;
+    border-radius: 5px;
+    padding: 12px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-outline-warning {
-    background-color: transparent;
-    color: orange;
-    border: 1px solid orange;
-}
 .caracteristica-eyes{
     color: red
 }
@@ -132,21 +133,21 @@
     border-radius: .25rem;
 }
 .card-img-top-characteres{
-    height: 447px;
-    width: 398px;
+    height: 350px;
+    width: 100%;
 }
 .card-img-top-planets{
-    height: 398px;
-    width: 398px;
+    height: 350px;
+    width: 100%;
 }
 .card-img-top-vehicles{
-    height: 265px;
-    width: 398px;
+    height: 350px;
+    width: 100%;
 }
 
 .imagen-detalles{
-    height: 600px;
-    width: 800px;
+    height: 400px;
+    width: 350px;
 }
 
 .titleMain{

@@ -22,11 +22,15 @@ const Detalles_characters = () => {
 
     return (
         <div className="container justify-content-center">
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
                 <img
                     src={`https://starwars-visualguide.com/assets/img/characters/${person.uid}.jpg`}
                     alt="Starwars"
                     className="imagen-detalles"
+                    onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://img.freepik.com/vector-gratis/ups-error-404-ilustracion-concepto-robot-roto_114360-5529.jpg"; 
+                    }}
                 />
                 <div className="person">
                     <h1>{person.name}</h1>

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as HeartEmpty } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as HeartFull } from '@fortawesome/free-solid-svg-icons';
 import { Context } from "../store/appContext";
 
 const Characters = () => {
@@ -24,12 +25,10 @@ const Characters = () => {
         }
     };
 
-
     return (
         <div className="overflow-x-scroll">
             <div className="d-flex">
                 {personajes.map(person => {
-                    const favoriteClass = isFavorite({"uid": person.uid, "type": "personajes"}) ? 'btn-danger' : 'btn-outline-warning';
                     return (
                         <div className="card" key={person.uid}>
                             <img
@@ -58,10 +57,11 @@ const Characters = () => {
                                     </Link>
                                     <button 
                                         type="button" 
-                                        className={`btn ${favoriteClass}`} 
+                                        className="btn-favorite"
                                         onClick={() => handlerClick({"name": person.name, "uid": person.uid, "type": "personajes"})}
                                     >
-                                        <FontAwesomeIcon icon={faHeart} />
+                                    <FontAwesomeIcon icon={isFavorite({"uid": person.uid, "type": "personajes"}) ? HeartFull : HeartEmpty} 
+                                    style={{ color: isFavorite({"uid": person.uid, "type": "personajes"}) ? 'gold' : 'black' }} />
                                     </button>
                                 </div>
                             </div>

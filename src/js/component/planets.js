@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as HeartEmpty } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as HeartFull } from '@fortawesome/free-solid-svg-icons';
 import { Context } from "../store/appContext";
 
 const Planets = () => {
@@ -19,7 +20,6 @@ const Planets = () => {
         }
         else {
             actions.addFavorite(character)
-
         }
 
     }
@@ -27,7 +27,6 @@ const Planets = () => {
         <div className="overflow-x-scroll">
             <div className="d-flex">
                 {planetas.map(planet => {
-                    const favoriteClass = isFavorite({"uid": planet.uid, "type": "Planetas"}) ? 'btn-danger' : 'btn-outline-warning';
                     return (
                         <div className="card" key={planet.uid}>
                             <img
@@ -48,10 +47,11 @@ const Planets = () => {
                                     <Link to={`/planets/detalles/${planet.uid}`} className="btn btn-outline-primary">Learn More!</Link>
                                     <button 
                                         type="button" 
-                                        className={`btn ${favoriteClass}`} 
+                                        className="btn-favorite"
                                         onClick={() => handlerClick({"name": planet.name, "uid": planet.uid, "type": "Planetas"})}
                                     >
-                                        <FontAwesomeIcon icon={faHeart} />
+                                    <FontAwesomeIcon icon={isFavorite({"uid": planet.uid, "type": "Planetas"}) ? HeartFull : HeartEmpty} 
+                                    style={{ color: isFavorite({"uid": planet.uid, "type": "Planetas"}) ? 'gold' : 'black' }} />
                                     </button>
                                 </div>
                             </div>
